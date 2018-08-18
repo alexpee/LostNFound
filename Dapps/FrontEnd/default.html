@@ -1,0 +1,152 @@
+<html>
+<head>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="search.js"></script>
+<script src="js/web3.min.js"></script>
+<script src="js/metamask.js"></script>
+<link href="style.css" rel="stylesheet">
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <h2>Some items may belong to you....Good luck</h2>
+
+    <p>Best viewed <a href="http://bootsnipp.com/iframe/Zkk0O" target="_blank">full screen</a>
+    </p>
+    <hr>
+    <section id="pinBoot">
+
+      <article class="white-panel"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXz4jjiyTsy1I6vtFwcEVo-jK2xroWl5M1zcGMkfEpamVGvOLkfQ" alt="">
+        <h4><a href="#">Olympus</a></h4>
+        <p>EPL 1. Grey Color.Found in Bangsar South</p>
+		<button class="btn btn-primary" type="button">Reward <span class="badge">0.0001 ETH</span></button>
+      </article>
+
+      <article class="white-panel"> <img src="https://i.ytimg.com/vi/WdgczD2E_pY/maxresdefault.jpg" alt="">
+        <h4><a href="#">Canon DSLR</a></h4>
+        <p>D50 . Black color. Found in midvalley</p>
+		<button class="btn btn-primary" type="button">Reward <span class="badge">0.00045 ETH</span></button>
+      </article>
+
+      <article class="white-panel"> <img src="https://s.yimg.com/ny/api/res/1.2/ETDhcaSgTu1LVO2icJ3NgQ--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NjMwO2g9MzI4O2lsPXBsYW5l/http://media.zenfs.com/en/blogs/technews/kmg-630-underwater-camera-630w.jpg" alt="">
+        <h4><a href="#">Nikon</a></h4>
+        <p>D3000. Unknow condition. Found in Sungai Kayoh.</p>
+		<button class="btn btn-warning" type="button">Reward <span class="badge">FREE</span></button>
+      </article>
+
+
+      
+
+
+
+      <article class="white-panel"><img src="http://i.imgur.com/E9RmLPA.jpg" alt="">
+        <h4><a href="#">Title 7</a></h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+          irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+
+      <article class="white-panel"> <img src="http://i.imgur.com/8lhFhc1.gif" alt="">
+        <h4><a href="#">Title 8</a></h4>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </article>
+
+    </section>
+
+
+    <hr>
+
+
+  </div>
+  <p>
+    <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2FZkk0O" target="_blank"><small>HTML</small><sup>5</sup></a>
+    <br>
+    <br>
+
+  </p>
+
+</div>
+
+<button id="btnClaim" class="btn btn-warning" type="button">Create </button>
+<text id="txtClaim"></text>
+
+<button id="btnClaim" class="btn btn-warning" type="button">Claim </button>
+
+
+
+</body>
+<script>
+iniMetamask();
+
+
+$('#btnClaim').click(function()
+  {
+	alert('hello');
+	const isMetaMaskEnabled = () => !!window.web3;
+
+	if (!isMetaMaskEnabled()) {
+	  alert('MetaMask is not enabled.');
+	  return;
+	}
+
+	console.log('test');
+	<!-- sendETH(1, '0x41914A2D91f0333a24FdC03B192Da1daC1386347').then -->
+	<!-- ( -->
+		<!-- result=> -->
+		<!-- { -->
+			<!-- console.log(result); -->
+		
+		<!-- } -->
+	<!-- ) -->
+	
+	
+	ERC20Instance.approve('0x1eaB0C81BFadf1a7139E464CEEBAB07234ea56FF',1000000000,{from: Account, gas: 900000}, function(err, hash) 
+	{	
+		if (err) {
+			console.log('err',err)
+		}
+		else{
+			console.log('hash',hash);
+			ERC20Instance.transfer('0x1eaB0C81BFadf1a7139E464CEEBAB07234ea56FF',1000000000,{from: Account, gas: 900000}, function(err2, hash2) 
+			{
+				if (err2) {
+					console.log('err2',err2)
+				}
+				console.log('hash2',hash2);
+			
+			});
+		}
+	});
+	
+	
+	
+
+  });
+
+  
+
+  
+
+const sendETH = (amount, to) => {
+  return new Promise((resolve, reject) => {
+    window.web3.eth.sendTransaction({
+      to: to,
+      value: amount
+    }, (error, hash) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      resolve(hash);
+    })
+  });
+}
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+{
+  "MSSQL": {
+    "dbConfig":{
+      "user": "blockuser",
+      "password": "3thereum2o18",
+      "server": "localhost",
+      "database": "SMARTMATCH"
+    }
+  },
+  "MongoDb":{ 
+    "dbConfig": {
+      "server": "mongodb://localhost:27017",
+      "auth":{
+        "user": "administrator",
+        "password": "MG5#(y>nm_MQ"
+       },
+      "database": "tikMatchDb"
+    }
+  },
+  "Contracts":{
+     "TokenDecimal" : 18,
+	 "TokenRateDecimal" : 4,
+     "LastBlock": 12,	 
+     "ERC20": {"address":"0x2b3c30d002b1690da832d38c2d7e268545451d61"},
+	 "TikMatch":{"address":"0x44dce8b40418c77d1f47efbfb8b448865b2f5673"},
+	 "eMYR": {"address":"0x59ef2c684e17aa228cad459f2a0af3ab3233b349"},
+	 "eSGD": {"address":"0x7890dd303277521be5d521b2491c85b0bdea4d35"},
+     "eUSD": {"address":"0xaa09226e8d8bfb7072c18bbc03d546a8f0fad96e"},
+     "eIDR": {"address":"0xa7697a38205db14b27e2e9f80ee56f858b72cdcb"}
+  },
+  "Ethereum": {
+    "RPCServer":{"URL": "HTTP://127.0.0.1:7545"},
+	"Admin":{"address":"0x84c12aF5D72d591586C488b8e37bdCDA4af7545e"}
+	
+  }
+}
