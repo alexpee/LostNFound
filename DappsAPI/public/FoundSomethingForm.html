@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Found Something</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/form.css" >
+		
+		 <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+	
+	
+
+	
+	
+	
+<script src="js/web3.min.js"></script>
+<script src="js/metamask.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+        <script src="js/form.js"></script>
+    </head>
+    <body >
+	
+	<!-- Navigation -->
+    
+	
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color:black">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.html">Lost And Found</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html#lost">Lost Something</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html#found">Found Something</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html#found">Account<label id="lblAcct"><i>Please logon metamask</i></label></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+	
+	
+	<br/><br/><br/>
+	<br/><br/><br/><br/>
+        <div class="container col-md-12">
+			<form id="foundForm" action="http://13.229.232.11:3000/found" method="get">
+            <div class="form-container">
+
+                <h1>
+                    I FOUND SOMETHING!
+                </h1>
+				<br/>
+				<span style="color:grey"><i>Please complete the following form in as much detail as possible.</i></span><br/>
+				
+				<br/>
+                <!-- <form method="post" id="reused_form" > -->
+				<div class="row">
+				<div class="col-md-1"> 
+                <label>Picture:</label> 
+				</div>
+				<div class="col-md-2"> 
+					<form>
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXz4jjiyTsy1I6vtFwcEVo-jK2xroWl5M1zcGMkfEpamVGvOLkfQ"/>
+						  <input type="File" id="fileInput" name="fileInput" size="10" />
+						  <input onclick="asyncFileUpload()" id="upload" type="button" value="Upload" />
+				</form>
+										
+				
+				</div>
+				</div>
+				<br/>
+				
+				<div class="row">
+					<div class="col-md-1"> 
+						<label>Item Name:</label> 
+					</div>
+					<div class="col-md-2"> 
+						<input type="text" placeholder="Short title about what you found" name="title" id="title" required>
+					</div>
+				
+					<div class="col-md-2"> </div>
+					<div class="col-md-1"> 
+						<label>Category:</label> 
+					</div>
+					<div class="col-md-4"> 
+						
+						<select id="category">
+						<option value="Wallet">Wallet</option>
+						<option value="Camera">Camera</option>
+						<option value="Passport">Passport</option>
+						<option value="Phone">Phone</option>
+						<option value="Other">Other</option>
+					</select>
+					</div>
+				</div> 
+				<br/>
+				
+				<div class="row">
+				<div class="col-md-1"> 
+                <label>Item Description:</label>
+				</div>
+				<div class="col-md-4"> 
+                    <textarea id="description" placeholder="Description about what you found. e.g where, when and how you found it." name="description" rows="10" maxlength="6000" required></textarea>
+				</div>
+				
+				<div class="col-md-1"> 
+                <label>Challenge One -Color:</label> 
+				</div>
+				<div class="col-md-4"> 
+					<select id="color">
+						<option value="Black">Black</option>
+						<option value="Grey">Grey</option>
+						<option value="White">White</option>
+						<option value="Red">Red</option>
+						<option value="Orange">Orange</option>
+						<option value="Yellow">Yellow</option>
+						<option value="Green">Green</option>
+						<option value="Blue">Blue</option>
+						
+					</select>
+				</div>
+				</div>
+				<br/>
+				
+				<div class="row">
+				<div class="col-md-1"> 
+                <label>Date Item was found:</label> 
+				</div>
+				<div class="col-md-4"> 
+                    <input type="date" id="start" name="trip" value="2018-07-22" min="2018-01-01" max="2018-08-19" />
+				</div>
+				
+				<div class="col-md-1"> 
+                <label>Challenge 2:Serial Number:</label> 
+				</div>
+				<div class="col-md-4"> 
+					<input type="text" placeholder="Any unique identifier?" name="serialNo" id="serialNo" >
+				</div>
+				</div>
+				<br/>
+				
+				<div class="row">
+				<div class="col-md-1"> 
+                <label>Location:</label> 
+				</div>
+				<div class="col-md-4"> 
+                    <input type="text" placeholder="e.g Bangsar South" name="location" id="location" required>
+				</div>
+				<input id="picture" type="hidden" name="picture" value= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXz4jjiyTsy1I6vtFwcEVo-jK2xroWl5M1zcGMkfEpamVGvOLkfQ"/>
+				<div class="col-md-1"> 
+                <label>Reward(Token):</label> 
+				</div>
+				<div class="col-md-4"> 
+                    <input type="text" placeholder="e.g 1 eth" name="reward" id="reward" required>
+				</div>
+				<div class="col-md-2"> 
+				 <Select>
+					 <Option>--ERC20 Token--</Option>
+					 <Option>LNF</Option>
+					  <Option>HGT</Option>
+					 </Select> 
+				</div>
+				</div>
+				<br/>
+				
+				<div class="row">
+				
+				</div>
+				<br/>
+				
+				
+				
+                <button class="button-primary" id="btnPost" type="button" >Post</button>
+                <!-- </form> -->
+               <!--  <div id="success_message" style="display:none">
+                    <h3>Submitted the form successfully!</h3> 
+                    <p> We will get back to you soon. </p>
+                </div>
+                <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div> -->
+            </div>
+		    </form>
+		
+		</div>
+		
+		
+		  <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+	 <script>
+
+     // user
+
+	 
+   var urlIPFS =  "http://localhost:3001/upload";  
+   var urlCreate =  "http://localhost:3002/found"
+   var FileHash = '';
+   
+  const asyncFileUpload = () => {
+  const fileInput = document.getElementById("fileInput");
+  
+  console.log(fileInput);
+  
+  const file = fileInput.files[0];
+  
+  var data = new FormData();
+
+  data.append('File', file);
+
+ console.log(file);
+ jQuery.ajax({
+    url: urlIPFS,
+    data: data,
+    cache: false,
+    contentType: false,
+    processData: false,
+    method: 'POST',
+    type: 'POST', // For jQuery < 1.9
+    success: function(data){
+        alert('Upload to IPFS node success');
+		console.log(data[0]);
+		FileHash = data[0].hash;
+		var picURL ='https://gateway.ipfs.io/ipfs/' +FileHash;
+		console.log(picURL);
+		$('#picture').val(picURL);
+    }
+});
+}
+   
+   
+   $("document").ready(function(){
+        $("#btnPost").click(function(){
+		
+			const isMetaMaskEnabled = () => !!window.web3;
+
+			if (!isMetaMaskEnabled()) {
+			  alert('MetaMask is not enabled.');
+			  return;
+			}
+	
+			
+		
+			console.log('btnPost');
+		
+			 var form = $('#foundForm');
+			 $.ajax({url:urlCreate,
+			 method:"post",
+			 data: form.serialize(),
+			 success: function(result){
+					alert("Successfully added the lost item to the IPFS storage...");
+					console.log(result);
+					alert("Submit the lost item to the LNF smart contract...");
+					LNFInstance.createItem(result._id,result._id,1,{from: Account, gas: 900000}, function(err2, hash2) 
+					{
+						if (err2) {
+						console.log('err2',err2)
+					}
+					  console.log('hash2',hash2);
+					  LNFInstance.getItem(result._id, function(error, resultbc){
+					 if(!error){
+						 console.log(resultbc);
+						 alert("Creating reward...");
+						 LNFInstance.createItemReward(result._id,result.reward,ERC20Address,1,{from: Account, gas: 900000}, function(err3, hash3)
+						 {
+						     if (!err3)
+							   alert("Reward offer successfully submitted");
+							 else
+							   console.log(err3);
+						 });
+						 
+						 
+						} 
+					 else{
+						 console.error(error);
+						 }
+					});
+						
+			
+			});
+
+					
+					
+					
+				}});
+		
+		});
+       
+    });
+   
+
+     </script>
+    </body>
+	<script>
+	
+	iniMetamask();
+	
+	</script>
+</html>
